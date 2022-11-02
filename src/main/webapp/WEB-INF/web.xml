@@ -49,4 +49,24 @@
     <servlet-name>MaServletController</servlet-name>
     <url-pattern>/essai</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreationProduit</display-name>
+    <servlet-name>CreationProduit</servlet-name>
+    <servlet-class>com.nextu.app.servlets.CreationProduit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreationProduit</servlet-name>
+    <url-pattern>/creationProduit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DetailsProduit</display-name>
+    <servlet-name>DetailsProduit</servlet-name>
+    <servlet-class>com.nextu.app.servlets.DetailsProduit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DetailsProduit</servlet-name>
+    <url-pattern>/detailsProduit</url-pattern>
+  </servlet-mapping>
 </web-app>

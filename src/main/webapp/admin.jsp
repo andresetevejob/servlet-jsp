@@ -59,6 +59,7 @@
                       <th scope="col">Code</th>
                       <th scope="col">Nom</th>
                       <th scope="col">Prix</th>
+                      <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -69,7 +70,7 @@
                       <th scope="row">1</th>
                       <td><%= p.getCode() %></td>
                       <td><%= p.getNom() %></td>
-                      <td>@<%= p.getPrice() %></td>
+                      <td><%= p.getPrice() %></td>
                     </tr>
                   <%
                     }

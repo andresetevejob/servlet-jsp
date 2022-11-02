@@ -18,7 +18,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="form.jsp">
-                <i class="fa fa-pencil-square-o"></i> Enregistrer un produit
+                <i class="fa fa-pencil-square-o"></i> Details d'un produit
               </a>
             </li>
             
@@ -37,25 +37,33 @@
         </div>
 
         <div class="row">
+        <% if(request.getAttribute("errorMessage")!=null){ %>
+        <div class="alert alert-danger" role="alert">
+             ${errorMessage}
+        </div>
+        <% }else{ %>
         <div class="col-lg-6 col-md-6 col-sm-12 pr-0 mb-3">
             <div class="card-collapsible card">
               <div class="card-header">
-                Enregistrer un produit <i class="fa fa-caret-down caret"></i>
+                Informations du produit 
+                
+                <i class="fa fa-caret-down caret"></i>
+              
               </div>
               <div class="card-body">
                 <form method="post" action="creationProduit">
                 
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Code du produit" name="code">
+                    <input type="text" class="form-control" placeholder="Code du produit" name="code" value="${produit.code}">
                   </div>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Nom du produit" name="nom">
+                    <input type="text" class="form-control" placeholder="Nom du produit" name="nom" value="${produit.nom}">
                   </div>
                   
                   
 
                    <div class="form-group">
-                    <input type="number" class="form-control" placeholder="Prix du produit" name="prix">
+                    <input type="number" class="form-control" placeholder="Prix du produit" name="prix" value="${produit.prix}">
                   </div>
 
                   <div class="form-group row">
@@ -76,6 +84,7 @@
             </div>
           </div>
         </div>
+        <% } %>
       </main>
     </div>
   </div>
