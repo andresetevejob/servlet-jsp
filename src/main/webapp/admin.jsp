@@ -1,50 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-	
-<header class="navbar navbar-expand sticky-top bg-primary navbar-dark flex-column flex-md-row bd-navbar">
-    <a class="navbar-brand mr-0 mr-md-2" href="#">
-      Product Management
-    </a>
-
-    <div class="navbar-nav-scroll">
-      <ul class="navbar-nav bd-navbar-nav flex-row">
-        <li class="nav-item px-2">
-          <a class="nav-link active" href="#">Accueil</a>
-        </li>
-        <li class="nav-item px-2">
-          <a class="nav-link" href="#">Documentation</a>
-        </li>
-      </ul>
-    </div>
-
-    <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-
-      <li class="nav-item">
-        <a class="nav-link p-3">
-          <i class="fa fa-envelope-o"></i>
-          <span class="badge badge-danger badge-notif">6</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link p-3">
-          <i class="fa fa-bell-o"></i>
-          <span class="badge badge-success badge-notif">6</span>
-        </a>
-      </li>
-    </ul>
-  </header>
+<%@ include file="/WEB-INF/template/header.jsp" %>
+<%@ page import="java.util.ArrayList,java.util.List,com.nextu.app.beans.Produit" %>
+<%
+  List<Produit> produits = new ArrayList<Produit>();
+  if(session.getAttribute("produits")!=null){
+	  produits = (ArrayList<Produit>)session.getAttribute("produits");
+  }
+%>
 <div class="container-fluid">
     <div class="row">
       <aside class="col-md-2 d-none d-md-block bg-light sidebar">
@@ -95,30 +56,24 @@
                   <thead class="thead bg-primary text-white">
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Prix</th>
                     </tr>
                   </thead>
                   <tbody>
+                  <%
+                     for(Produit p :produits){
+                  %>
                     <tr>
                       <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                      <td><%= p.getCode() %></td>
+                      <td><%= p.getNom() %></td>
+                      <td>@<%= p.getPrice() %></td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
+                  <%
+                    }
+                  %>
                   </tbody>
                 </table>
               </div>
